@@ -1,16 +1,16 @@
-interface inputElement {
+interface SimpleInputElement {
     name: string;
     type: string;
-    inputName: string;
+    label: string;
     placeholder?: string;
     class?: string;
 }
 
-const DefaultInput = (props: inputElement) => {
+const SimpleInput = (props: SimpleInputElement) => {
     
     return ( 
         <div>
-            <label htmlFor={props.name} className="block text-xs font-medium text-gray-700 capitalize mb-1">{props.inputName}</label>
+            <label htmlFor={props.name} className="block text-xs font-medium text-gray-700 capitalize mb-1">{props.label}</label>
             <div className="mt-1">
                 <input 
                     type={props.type} 
@@ -23,4 +23,4 @@ const DefaultInput = (props: inputElement) => {
      );
 }
  
-export default DefaultInput;
+export default SimpleInput;

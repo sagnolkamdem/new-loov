@@ -1,12 +1,13 @@
 interface CheckboxElement{
     name: string;
     label: string;
+    class?: string;
 }
 
 const Checkbox = (props: CheckboxElement) => {
     return ( 
 
-        <fieldset className="space-y-5">
+        <fieldset className={`space-y-5 ${props.class}`}>
 
             <legend className="sr-only">Notifications</legend>
             <div className="relative flex items-start">
@@ -20,7 +21,7 @@ const Checkbox = (props: CheckboxElement) => {
                     />
                 </div>
                 <div className="ml-2 text-sm">
-                    <label htmlFor={props.name} className="font-normal text-sm text-slate-900">{props.label}</label>
+                    <label htmlFor={props.name} className={`font-normal text-sm text-slate-500`}>{props.label}</label>
                 </div>
             </div>
             
