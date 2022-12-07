@@ -4,12 +4,13 @@ interface SimpleInputElement {
     label: string;
     placeholder?: string;
     class?: string;
+    blockClass?: string;
 }
 
 const SimpleInput = (props: SimpleInputElement) => {
     
     return ( 
-        <div>
+        <div className={props.blockClass}>
             <label htmlFor={props.name} className="block text-xs font-medium text-gray-700 capitalize mb-1">{props.label}</label>
             <div className="mt-1">
                 <input 
