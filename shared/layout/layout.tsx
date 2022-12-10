@@ -1,11 +1,10 @@
 import Head from "next/head";
-import Footer from "./footer";
 import Navbar from "./navbar";
 import SideBar from "./sideBar";
 
 const Layout = (props: any) => {
     return ( 
-        <main className="h-screen">
+        <main className="h-screen overflow-hidden">
             <Head>
                 <title>Loov</title>
                 <meta name="description" content="Loov Payment" />
@@ -16,13 +15,13 @@ const Layout = (props: any) => {
             <section className="h-full flex flex-col bg-gray-100 gap-10">
                 <Navbar />
 
-                <div className="grid grid-cols-5 flex-1">
+                <div className="grid lg:grid-cols-5 flex-1 overflow-scroll">
                     <SideBar />
 
-                    <div className="col-span-4">
+                    <div className="col-span-4 px-4 sm:pl-6 sm:pr-8">
                         {props.children}
                     </div>
-                    
+
                 </div>
 
             </section>
