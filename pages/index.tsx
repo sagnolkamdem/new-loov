@@ -22,7 +22,7 @@ export default function Home() {
 
       <div className="grid lg:grid-cols-3 sm:grid-cols-2 gris-cols-1 gap-x-6 gap-y-6 mb-11">
 
-        <div className="flex gap-4 p-4 rounded bg-white">
+        <div className="flex gap-4 p-4 rounded bg-white shadow-sm">
 
           <div className="w-12 h-12 flex justify-center items-center rounded bg-primary-900">
             <svg className='w-6 h-6 stroke-white' aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -38,7 +38,7 @@ export default function Home() {
 
         </div>
 
-        <div className="flex gap-4 p-4 rounded bg-white">
+        <div className="flex gap-4 p-4 rounded bg-white shadow-sm">
 
           <div className="w-12 h-12 flex justify-center items-center rounded bg-primary-900">
             <svg className='w-6 h-6 stroke-white' aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -54,7 +54,7 @@ export default function Home() {
 
         </div>
 
-        <div className="flex gap-4 p-4 rounded bg-white">
+        <div className="flex gap-4 p-4 rounded bg-white shadow-sm">
 
           <div className="w-12 h-12 flex justify-center items-center rounded bg-primary-900">
             <svg className='w-6 h-6 stroke-white' aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
