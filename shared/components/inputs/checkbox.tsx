@@ -1,6 +1,6 @@
 interface CheckboxElement{
     name: string;
-    label: string;
+    label?: string;
     class?: string;
 }
 
