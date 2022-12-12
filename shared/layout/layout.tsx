@@ -13,7 +13,7 @@ const Layout = (props: any) => {
     }
 
     return ( 
-        <main className="h-screen">
+        <main className="h-screen overflow-hidden">
             <Head>
                 <title>Loov</title>
                 <meta name="description" content="Loov Payment" />
@@ -24,10 +24,10 @@ const Layout = (props: any) => {
             <section className="h-full flex flex-col bg-gray-100 gap-10 overflow-hidden">
                 <Navbar callback={setShowSideVar}/>
 
-                <div className="grid lg:grid-cols-5 flex-1">
+                <div className="grid lg:grid-cols-5 flex-1 overflow-auto">
                     <SideBar showSide={showSide} callback={setShowSideVar} />
 
-                    <div className="col-span-4 px-4 sm:pl-6 sm:pr-8 overflow-y-scroll">
+                    <div className="col-span-4 px-4 sm:pl-6 sm:pr-8">
                         {props.children}
                     </div>
 
@@ -35,6 +35,8 @@ const Layout = (props: any) => {
 
             </section>
         </main>
+
+
      );
 }
  

@@ -92,7 +92,7 @@ const SideBar = ({showSide, callback}: {showSide: boolean, callback: any}) => {
 
     if(!showSide){
         return ( 
-            <aside className="col-span-1 pl-8 lg:block hidden transition duration-300 overflow-scroll" aria-label="Sidebar">
+            <aside className="col-span-1 pl-8 lg:block hidden transition duration-300 overflow-y-scroll" aria-label="Sidebar">
                 {nav.map((nav: Navigation, index: number) => (
                     <nav className="mb-8" key={index}>
                         <h3 className="text-gray-400 font-medium text-xs leading-5 mb-4 uppercase">{nav.name}</h3>
