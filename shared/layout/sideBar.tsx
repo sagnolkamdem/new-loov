@@ -1,4 +1,6 @@
 import Link from "next/link";
+import EmptyButton from "../components/buttons/emptyButton";
+import HeaderLogo from "../components/logo/headerLogo";
 
 interface Item {
     name: string;
@@ -11,7 +13,7 @@ interface Navigation {
 }
 
 
-const SideBar = () => {
+const SideBar = ({showSide, callback}: {showSide: boolean, callback: any}) => {
 
     const nav: Navigation[] = [
         {
@@ -88,28 +90,67 @@ const SideBar = () => {
         
     ]
 
+    if(!showSide){
+        return ( 
+            <aside className="col-span-1 pl-8 lg:block hidden transition duration-300 overflow-y-scroll" aria-label="Sidebar">
+                {nav.map((nav: Navigation, index: number) => (
+                    <nav className="mb-8" key={index}>
+                        <h3 className="text-gray-400 font-medium text-xs leading-5 mb-4 uppercase">{nav.name}</h3>
+                        
+                        {nav.content.map((content: Item, index: number) => (
+                            <Link key={index} className="flex items-center gap-3 text-gray-600 text-sm font-medium capitalize py-2" href={content.link}>
+                                <span>
+                                    <svg className="w-6 h-6 stroke-gray-400" aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d={content.svg} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                    </svg>
+                                </span>
+                                {content.name}
+                            </Link>
+                        ))}
+    
+                    </nav>
+                ))}
+            </aside>
+        );
+    } else {
+        return ( 
+            <aside className="fixed z-40 inset-0 lg:hidden block transition duration-300 overflow-hidden" aria-label="Sidebar">
 
-    return ( 
-        <aside className="col-span-1 pl-8 lg:block hidden transition duration-300" aria-label="Sidebar">
-            {nav.map((nav: Navigation) => (
-                <nav className="mb-8">
-                    <h3 className="text-gray-400 font-medium text-xs leading-5 mb-4 uppercase">{nav.name}</h3>
-                    
-                    {nav.content.map((content: Item) => (
-                        <Link className="flex items-center gap-3 text-gray-600 text-sm font-medium capitalize py-2" href={content.link}>
-                            <span>
-                                <svg className="w-6 h-6 stroke-gray-400" aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d={content.svg} strokeWidth="1.5" stroke-linecap="round" strokeLinejoin="round"/>
-                                </svg>
-                            </span>
-                            {content.name}
-                        </Link>
+                <div className="relative w-full h-full bg-gray-800 opacity-75"></div>
+
+                <div className="absolute w-60 pt-5 pl-8 inset-y-0 bg-gray-100 overflow-scroll">
+                    <HeaderLogo class="mb-10"/>
+
+                    {nav.map((nav: Navigation, index: number) => (
+                        <nav className="mb-8" key={index}>
+                            <h3 className="text-gray-400 font-medium text-xs leading-5 mb-4 uppercase">{nav.name}</h3>
+                            
+                            {nav.content.map((content: Item, index: number) => (
+                                <Link key={index} className="flex items-center gap-3 text-gray-600 text-sm font-medium capitalize py-2" href={content.link}>
+                                    <span>
+                                        <svg className="w-6 h-6 stroke-gray-400" aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d={content.svg} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                        </svg>
+                                    </span>
+                                    {content.name}
+                                </Link>
+                            ))}
+        
+                        </nav>
                     ))}
 
-                </nav>
-            ))}
-        </aside>
-     );
+                </div>
+
+                <button className="fixed left-64 top-2 w-10 h-10" onClick={callback}>
+                    <svg className="w-6 h-6 stroke-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 18L18 6M6 6L18 18" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                </button>
+                
+            </aside>
+        );
+    }
+    
 }
  
 export default SideBar;
