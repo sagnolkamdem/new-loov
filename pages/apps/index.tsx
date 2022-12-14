@@ -343,7 +343,7 @@ const Apps = () => {
 
             </ul>
 
-            <div className="sr-only">scv</div>
+            <div className="sr-only">app</div>
 
         </Layout>
      );
